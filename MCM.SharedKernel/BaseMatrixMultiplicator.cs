@@ -1,6 +1,4 @@
-﻿using MCM.SharedKernel;
-
-namespace MCM.Core
+﻿namespace MCM.SharedKernel
 {
     public abstract class BaseMatrixMultiplicator
     {
@@ -17,6 +15,6 @@ namespace MCM.Core
             _matrixChain = matrixChain;
         }
 
-        protected abstract int Multiplicate();
+        public abstract MatrixChainMultiplyResult Solve();
     }
 }

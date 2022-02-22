@@ -1,11 +1,13 @@
-﻿namespace MCM.Core.Multiplicators
+﻿using MCM.SharedKernel;
+
+namespace MCM.Core.Multiplicators
 {
     public class DynamicMatrixMultiplicator : BaseMatrixMultiplicator
     {
         public DynamicMatrixMultiplicator(IReadOnlyList<int> matrixChain)
             : base(matrixChain) { }
 
-        protected override int Multiplicate()
+        public override MatrixChainMultiplyResult Solve()
         {
             var n = _matrixChain.Count - 1;
             var container = new int[n, n];
@@ -30,7 +32,10 @@
                 }
             }
 
-            return container[0, n - 1];
+            return new MatrixChainMultiplyResult
+            {
+                MinCostMultiplication = container[0, n - 1],
+            };
         }
     }
 }
