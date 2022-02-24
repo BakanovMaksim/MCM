@@ -2,6 +2,7 @@
 {
     public  class MatrixChainMultiplyResult
     {
-        public int MinCostMultiplication { get; set; }
+        public int MultiplicationMinCost { get; set; }
+        public int[,]? MultiplicationCosts { get; set; }
     }
 }

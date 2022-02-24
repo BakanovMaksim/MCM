@@ -7,11 +7,48 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h2>Динамическое программирование</h2>
+            <h2 class="text-center">Метод динамического программирования</h2>
         </div>
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>@string.Empty</th>
 
-        <div class="12">
-            <label>@Model.DynamicMethodResult.MinCostMultiplication</label>
+                        @for (var index = 0; index < Model.DynamicMethodResult.MultiplicationCosts.GetLength(0); index++)
+                        {
+                            <th>@index</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (var row = 0; row < Model.DynamicMethodResult.MultiplicationCosts.GetLength(0); row++)
+                        {
+                            <tr>
+                                <td><strong>@row</strong></td>
+
+                                @for (var column = 0; column < Model.DynamicMethodResult.MultiplicationCosts.GetLength(1); column++)
+                                {
+                                    var cellClassName = row == 0 && column == (Model.DynamicMethodResult.MultiplicationCosts.GetLength(1) - 1) ?
+                                    "table-success" :
+                                    "table-dark";
+
+                                    <td class="@cellClassName">@Model.DynamicMethodResult.MultiplicationCosts[row, column]</td>
+                                }
+                            </tr>
+                        }
+                </tbody>
+            </table>
+        </div>
+        <div class="4">
+            <label class="form-label">Оптимальная стоимость перемножения цепочки матриц
+                <input 
+                    class="form-control text-center" 
+                    type="text" 
+                    value="@Model.DynamicMethodResult.MultiplicationMinCost" 
+                    disabled
+                />
+            </label>
         </div>
     </div>
 </div>

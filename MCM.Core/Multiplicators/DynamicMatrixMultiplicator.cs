@@ -34,7 +34,8 @@ namespace MCM.Core.Multiplicators
 
             return new MatrixChainMultiplyResult
             {
-                MinCostMultiplication = container[0, n - 1],
+                MultiplicationMinCost = container[0, n - 1],
+                MultiplicationCosts = container,
             };
         }
     }
